@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="569.642" height="316.07" viewBox="0 0 569.642 316.07">
+  <defs>
+    <filter id="Rectangle_4" x="72.13" y="200.279" width="436" height="113" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_4-2" x="47.13" y="131.279" width="476" height="122" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_4-3" x="27.13" y="58.279" width="517" height="131" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-3"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_64" data-name="Group 64" transform="translate(3054.13 -703.965)">
+    <path id="Path_26" data-name="Path 26" d="M-3094.058,543.941s-29.739-3.829-38.546-9.646,7.145-32.65,21.264-39.348,39.226-18.232,39.226-18.232l233.5-151.72s130.423-95.485,178.216-42-46.856,93.431-46.856,93.431,58.234,18.01,78.658,31.8,41.159,19.018,57.951,41.989-12.376,61.689-16.984,67.2-25.974,33.274-29.241,39.419-66.146,26.337-109.047,25.948-71.22-5.63-102.7-21.759-158.595,12.03-169.285,15.592-56.911,4.788-74.212-12.477S-3094.058,543.941-3094.058,543.941Z" transform="translate(81 437.244)" fill="#e7f2fa"/>
+    <g id="Group_61" data-name="Group 61" transform="translate(147 294.244)">
+      <g transform="matrix(1, 0, 0, 1, -3201.13, 409.72)" filter="url(#Rectangle_4)">
+        <rect id="Rectangle_4-4" data-name="Rectangle 4" width="418" height="95" rx="11" transform="translate(81.13 206.28)" fill="#fff"/>
+      </g>
+      <rect id="Rectangle_6" data-name="Rectangle 6" width="140" height="11" rx="4" transform="translate(-3100 661)" fill="#cfd4d7" opacity="0.3"/>
+      <rect id="Rectangle_7" data-name="Rectangle 7" width="210" height="12" rx="4" transform="translate(-3100 678)" fill="#cfd4d7" opacity="0.3"/>
+      <rect id="Rectangle_8" data-name="Rectangle 8" width="280" height="22" rx="4" transform="translate(-3100 629)" fill="#cfd4d7"/>
+    </g>
+    <g id="Group_62" data-name="Group 62" transform="translate(122 225.244)">
+      <g transform="matrix(1, 0, 0, 1, -3176.13, 478.72)" filter="url(#Rectangle_4-2)">
+        <rect id="Rectangle_4-5" data-name="Rectangle 4" width="458" height="104" rx="11" transform="translate(56.13 137.28)" fill="#fff"/>
+      </g>
+      <rect id="Rectangle_6-2" data-name="Rectangle 6" width="154" height="12" rx="4" transform="translate(-3098 666)" fill="#cfd4d7" opacity="0.5"/>
+      <rect id="Rectangle_7-2" data-name="Rectangle 7" width="230" height="13" rx="4" transform="translate(-3098 684)" fill="#cfd4d7" opacity="0.5"/>
+      <rect id="Rectangle_8-2" data-name="Rectangle 8" width="307" height="24" rx="4" transform="translate(-3098 631)" fill="#cfd4d7"/>
+    </g>
+    <g id="Group_63" data-name="Group 63" transform="translate(102 152.244)">
+      <g transform="matrix(1, 0, 0, 1, -3156.13, 551.72)" filter="url(#Rectangle_4-3)">
+        <g id="Rectangle_4-6" data-name="Rectangle 4" transform="translate(36.13 64.28)" fill="#fff" stroke="#1096ca" stroke-width="2">
+          <rect width="499" height="113" rx="11" stroke="none"/>
+          <rect x="1" y="1" width="497" height="111" rx="10" fill="none"/>
+        </g>
+      </g>
+      <rect id="Rectangle_6-3" data-name="Rectangle 6" width="167" height="13" rx="4" transform="translate(-3096 670)" fill="#cfd4d7"/>
+      <rect id="Rectangle_7-3" data-name="Rectangle 7" width="249" height="14" rx="4" transform="translate(-3096 690)" fill="#cfd4d7"/>
+      <rect id="Rectangle_8-3" data-name="Rectangle 8" width="333" height="26" rx="4" transform="translate(-3096 632)" fill="#0066af"/>
+    </g>
+  </g>
+</svg>

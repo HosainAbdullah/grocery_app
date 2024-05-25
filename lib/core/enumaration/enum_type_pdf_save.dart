@@ -1,0 +1,4 @@
+enum TypePdfSave {
+  saveLocal,
+  saveLocalAndShare,
+}
