@@ -5,7 +5,7 @@
 # 👉 حقوق النسخة
 جميع الحقوق محفوظة ل شركة تسهيل للخدمات التقنية
 
-Copyright (c) 2024 - present [Tashil For Tech](http://#)
+Copyright (c) 2024 - present [Tashil For Tech](https://api.whatsapp.com/send/?phone=967733290746&text=welcom+tashil&type=phone_number&app_absent=0)
 
 
 ## [1.0.0] 2024-05-25
