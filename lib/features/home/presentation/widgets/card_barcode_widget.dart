@@ -6,6 +6,7 @@ import 'package:grocery_app/constants/path_const/assets_list.dart';
 import 'package:grocery_app/constants/path_const/local_path.dart';
 import 'package:grocery_app/features/cart/data/model/cart.dart';
 import 'package:grocery_app/features/cart/presentation/controller/all_operation_cart/all_operation_cart_cubit.dart';
+import 'package:grocery_app/features/home/presentation/widgets/not_search_widget.dart';
 import 'package:grocery_app/features/product/domain/entities/product_entities.dart';
 
 class CardBarCodeWidget extends StatelessWidget {
@@ -106,32 +107,7 @@ class CardBarCodeWidget extends StatelessWidget {
         ),
       );
     } else {
-      return Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          border: Border.all(color: const Color(0xffF1F1F5)),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Center(
-            child: Column(
-              children: [
-                SvgPicture.asset(
-                  AssetsPath.assetsIcons + AssetsListName.icons[1],
-                ),
-                const SizedBox(
-                  height: 8,
-                ),
-                const Text("لم تقم ب البحث بعد"),
-                const SizedBox(
-                  height: 8,
-                ),
-              ],
-            ),
-          ),
-        ),
-      );
+      return const NotSearchWidget();
     }
   }
 }

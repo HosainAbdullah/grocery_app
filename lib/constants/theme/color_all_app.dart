@@ -17,5 +17,5 @@ class ColorAllApp {
   // static const Color buttoncolor = Color(0xff3e4784);
   static const Color red = Color(0xFFec5766);
   // static const Color green = Color(0xFF43aa8b);
-  // static const Color grey = Color(0xFFBAB9B9);
+  static const Color grey = Color(0xFFBAB9B9);
 }

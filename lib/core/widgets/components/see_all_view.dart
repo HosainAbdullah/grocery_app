@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-// import 'package:get/get.dart';
+import 'package:grocery_app/constants/strings/strings_all_app.dart';
+import 'package:grocery_app/core/lang/app_localizations.dart';
 
 class SeeAllView extends StatelessWidget {
   const SeeAllView({
@@ -27,7 +28,7 @@ class SeeAllView extends StatelessWidget {
             onTapAction();
           },
           child: Text(
-            "عرض الكل",
+            StringsAllApp.seeAllText.tr(context),
             style: TextStyle(
                 fontSize: 14,
                 color: Theme.of(context).primaryColor,

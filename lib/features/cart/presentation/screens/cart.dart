@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:grocery_app/constants/responsive/responsive_size.dart';
 import 'package:grocery_app/core/extension/state_app.dart';
 import 'package:grocery_app/core/widgets/app_bar/app_bar.dart';
 import 'package:grocery_app/core/widgets/components/circular_progress_loading.dart';
@@ -80,34 +81,41 @@ class CartScreen extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      BlocProvider.of<AllOperationCartCubit>(context)
-                          .printDataShare();
-                    },
-                    style: TextButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(vertical: 16),
-                      shape: const StadiumBorder(),
-                      backgroundColor: Theme.of(context).disabledColor,
-                    ),
-                    child: const Text(
-                      "مشاركة",
-                      style: TextStyle(color: Colors.white),
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        BlocProvider.of<AllOperationCartCubit>(context)
+                            .printDataShare();
+                      },
+                      style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(vertical: 16),
+                        shape: const StadiumBorder(),
+                        backgroundColor: Theme.of(context).disabledColor,
+                      ),
+                      child: const Text(
+                        "مشاركة",
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
                   ),
-                  ElevatedButton(
-                    onPressed: () {
-                      BlocProvider.of<AllOperationCartCubit>(context)
-                          .printData();
-                    },
-                    style: TextButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(vertical: 16),
-                      shape: const StadiumBorder(),
-                      backgroundColor: Theme.of(context).disabledColor,
-                    ),
-                    child: const Text(
-                      "عرض بي دي اف ",
-                      style: TextStyle(color: Colors.white),
+                  SizedBox(
+                    width: getScreenWidth(10),
+                  ),
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        BlocProvider.of<AllOperationCartCubit>(context)
+                            .printData();
+                      },
+                      style: TextButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(vertical: 16),
+                        shape: const StadiumBorder(),
+                        backgroundColor: Theme.of(context).disabledColor,
+                      ),
+                      child: const Text(
+                        "عرض بي دي اف ",
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
                   )
                 ],

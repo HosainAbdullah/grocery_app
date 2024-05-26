@@ -2,24 +2,28 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:grocery_app/constants/path_const/assets_list.dart';
 import 'package:grocery_app/constants/path_const/local_path.dart';
+import 'package:grocery_app/constants/responsive/responsive_size.dart';
+import 'package:grocery_app/constants/strings/strings_all_app.dart';
 import 'package:grocery_app/core/extension/state_app.dart';
+import 'package:grocery_app/core/lang/app_localizations.dart';
 import 'package:grocery_app/core/widgets/app_bar/app_bar.dart';
-import 'package:grocery_app/core/widgets/components/vegetable_card.dart';
 import 'package:grocery_app/core/widgets/text_field/search_text_field.dart';
 import 'package:grocery_app/features/product/presentation/controller/all_operation_product/all_operation_product_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:grocery_app/features/product/presentation/widgets/product_card_widget.dart';
 
 class ShowAllProductScreen extends StatelessWidget {
   const ShowAllProductScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    ResponsiveSize().init(context: context);
     return Scaffold(
       appBar: MyAppBar(
-          title: const Padding(
-            padding: EdgeInsets.only(right: 16.0),
+          title: Padding(
+            padding: ResponsiveSize.rightPadding(size: 16),
             child: SearchTextField(
-              hint: "Search products...",
+              hint: StringsAllApp.searchProductsText.tr(context),
               readOnly: true,
             ),
           ),
@@ -73,7 +77,7 @@ class ShowAllProductScreen extends StatelessWidget {
                   ),
                   itemBuilder: (context, index) {
                     if (index < productList.length) {
-                      return VegetableCardWidget(
+                      return ProductCardWidget(
                         product: productList[index],
                       );
                     }
@@ -105,9 +109,9 @@ class ShowAllProductScreen extends StatelessWidget {
                         shape: const StadiumBorder(),
                         backgroundColor: Theme.of(context).primaryColor,
                       ),
-                      child: const Text(
-                        "Refresh",
-                        style: TextStyle(color: Colors.white),
+                      child: Text(
+                        StringsAllApp.refreshText.tr(context),
+                        style: const TextStyle(color: Colors.white),
                       ),
                     )
                   ],

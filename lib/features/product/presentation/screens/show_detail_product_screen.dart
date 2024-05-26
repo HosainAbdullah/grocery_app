@@ -1,4 +1,4 @@
-import 'dart:developer';
+import 'dart:io';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -6,15 +6,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:grocery_app/constants/path_const/assets_list.dart';
 import 'package:grocery_app/constants/path_const/local_path.dart';
+import 'package:grocery_app/constants/responsive/responsive_size.dart';
+import 'package:grocery_app/constants/strings/strings_all_app.dart';
+import 'package:grocery_app/constants/theme/color_all_app.dart';
+import 'package:grocery_app/core/lang/app_localizations.dart';
+import 'package:grocery_app/core/widgets/alert/alert_show_image.dart';
 import 'package:grocery_app/core/widgets/app_bar/app_bar.dart';
-import 'package:grocery_app/core/widgets/text_field/search_text_field.dart';
 import 'package:grocery_app/features/cart/data/model/cart.dart';
 import 'package:grocery_app/features/cart/presentation/controller/all_operation_cart/all_operation_cart_cubit.dart';
 import 'package:grocery_app/features/product/domain/entities/product_entities.dart';
 
-class VegetableDetailScreen extends StatelessWidget {
+class ShowDetailProductScreen extends StatelessWidget {
   final ProductEntities product;
-  const VegetableDetailScreen({
+  const ShowDetailProductScreen({
     Key? key,
     required this.product,
   }) : super(key: key);
@@ -23,9 +27,12 @@ class VegetableDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(
-          title: const SearchTextField(
-            hint: "What are u looking for ?",
-            readOnly: true,
+          title: Text(
+            "تفاصيل المنتج",
+            style: TextStyle(
+                fontSize: getScreenWidth(16),
+                fontWeight: FontWeight.bold,
+                color: ColorAllApp.primary),
           ),
           leading: InkResponse(
             onTap: () {
@@ -51,35 +58,13 @@ class VegetableDetailScreen extends StatelessWidget {
                 children: [
                   InkResponse(
                     onTap: () {
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //       builder: (context) => PhotoViewGallery.builder(
-                      //         scrollPhysics: const BouncingScrollPhysics(),
-                      //         builder: (BuildContext context, int index) {
-                      //           return PhotoViewGalleryPageOptions(
-                      //             maxScale:
-                      //                 PhotoViewComputedScale.covered * 1.1,
-                      //             minScale:
-                      //                 PhotoViewComputedScale.contained * 0.8,
-                      //             imageProvider: CachedNetworkImageProvider(
-                      //               product.proImage,
-                      //             ),
-                      //             initialScale:
-                      //                 PhotoViewComputedScale.contained * 0.8,
-                      //             heroAttributes: PhotoViewHeroAttributes(
-                      //               tag: product.proID,
-                      //             ),
-                      //           );
-                      //         },
-                      //         itemCount: 1,
-                      //         pageController: PageController(initialPage: 0),
-                      //       ),
-                      //     ));
-
-                      // Get.to(() =>
-
-                      // )
+                      showDialog(
+                        context: context,
+                        // barrierColor: Colors.transparent,
+                        builder: (context) => AlertShowImage(
+                          linkImage: product.proImage,
+                        ),
+                      );
                     },
                     child: Container(
                       width: MediaQuery.of(context).size.width,
@@ -125,10 +110,9 @@ class VegetableDetailScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
-                          // "${product.price} / ${10}",
-                          "000",
-                          style: TextStyle(
+                        Text(
+                          product.price,
+                          style: const TextStyle(
                             color: Color(0xffFF324B),
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
@@ -159,51 +143,9 @@ class VegetableDetailScreen extends StatelessWidget {
                           height: 14,
                         ),
                         Text(
-                          // "tags: ${product.brandName}",
                           product.description,
                           style: const TextStyle(
                               fontSize: 14, fontWeight: FontWeight.normal),
-                        ),
-                        // const SizedBox(
-                        //   height: 32,
-                        // ),
-                        // const Row(
-                        //   children: [
-                        //     ItemKeyPointsView(
-                        //       imagePath: Assets.imagesOrganic,
-                        //       title: "100%",
-                        //       desc: "Organic",
-                        //     ),
-                        //     SizedBox(
-                        //       width: 8,
-                        //     ),
-                        //     ItemKeyPointsView(
-                        //       imagePath: Assets.imagesHouse,
-                        //       title: "1 Year",
-                        //       desc: "Expiration",
-                        //     )
-                        //   ],
-                        // ),
-                        // const SizedBox(
-                        //   height: 8,
-                        // ),
-                        // const Row(
-                        //   children: [
-                        //     ItemKeyPointsView(
-                        //         imagePath: Assets.imagesReviews,
-                        //         title: "4.8",
-                        //         desc: "Reviews"),
-                        //     SizedBox(
-                        //       width: 8,
-                        //     ),
-                        //     ItemKeyPointsView(
-                        //         imagePath: Assets.imagesCalories,
-                        //         title: "80 kcal",
-                        //         desc: "200 Gram")
-                        //   ],
-                        // ),
-                        const SizedBox(
-                          height: 20,
                         ),
                       ],
                     ),
@@ -244,8 +186,8 @@ class VegetableDetailScreen extends StatelessWidget {
                           )
                         ],
                       ),
-                      const SizedBox(
-                        width: 8,
+                      SizedBox(
+                        width: getScreenWidth(8),
                       ),
                       Expanded(
                         flex: 1,
@@ -264,34 +206,12 @@ class VegetableDetailScreen extends StatelessWidget {
                                   .read<AllOperationCartCubit>()
                                   .cartListItem[indexItem];
                             }
-
-                            // .contains(product.proID);
-                            //
-                            // element.proID == product.proID);
-                            log(indexItem.toString());
-                            log(cartItem.toString());
-                            // return const Text('data');
-                            // return indexItem != -1 &&  cartItem.proID == product.proID
-                            //     ? _buildCartActions(cartItem)
-                            //     : _buildCartNoActions(context);
-
                             return cartItem != null &&
                                     cartItem.proID == product.proID
                                 ? _buildCartActions(cartItem, context)
                                 : _buildCartNoActions(context);
                           },
                         ),
-                        // Obx(
-                        //   () {
-                        //     return _buildCartNoActions();
-                        // final cartItem = cartViewModel
-                        //     .productCartMap[product.proID.toString()];
-                        // return cartItem != null &&
-                        //         cartItem.id == product.proID
-                        //     ? _buildCartActions(cartItem)
-                        //     : _buildCartNoActions();
-                        //   },
-                        // ),
                       )
                     ],
                   ),
@@ -324,9 +244,9 @@ class VegetableDetailScreen extends StatelessWidget {
         shape: const StadiumBorder(),
         backgroundColor: Theme.of(context).primaryColor,
       ),
-      child: const Text(
-        "Add to cart",
-        style: TextStyle(color: Colors.white),
+      child: Text(
+        StringsAllApp.addToCartText.tr(context),
+        style: const TextStyle(color: Colors.white),
       ),
     );
   }
@@ -339,49 +259,9 @@ class VegetableDetailScreen extends StatelessWidget {
       },
       child: SvgPicture.asset(
         AssetsPath.assetsIcons + AssetsListName.icons[2],
+        width: getScreenWidth(40),
+        height: getScreenHeight(40),
       ),
-
-      // Image.asset(
-      //   Assets.imagesRemoveIcon,
-      //   width: 40,
-      //   height: 40,
-      // ),
     );
-
-    // Row(
-    //   mainAxisAlignment: MainAxisAlignment.center,
-    //   crossAxisAlignment: CrossAxisAlignment.center,
-    //   children: [
-    //     InkResponse(
-    //       onTap: () {
-    //         // cartViewModel.addToCart(cartItem);
-    //       },
-    //       child: Image.asset(
-    //         Assets.imagesAddIcon,
-    //         width: 40,
-    //         height: 40,
-    //       ),
-    //     ),
-    //     const SizedBox(width: 20),
-    //     // Text(
-    //     //   (cartItem.itemQuantity).toString(),
-    //     //   style: const TextStyle(
-    //     //     fontSize: 16,
-    //     //     fontWeight: FontWeight.bold,
-    //     //   ),
-    //     // ),
-    //     const SizedBox(width: 20),
-    //     InkResponse(
-    //       onTap: () {
-    //         // cartViewModel.removeFromCart(cartItem);
-    //       },
-    //       child: Image.asset(
-    //         Assets.imagesRemoveIcon,
-    //         width: 40,
-    //         height: 40,
-    //       ),
-    //     ),
-    //   ],
-    // );
   }
 }

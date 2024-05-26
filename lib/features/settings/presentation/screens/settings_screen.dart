@@ -1,32 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_app/constants/path_const/assets_list.dart';
 import 'package:grocery_app/constants/path_const/local_path.dart';
+import 'package:grocery_app/constants/responsive/responsive_size.dart';
 import 'package:grocery_app/core/widgets/profile_list.dart';
+import 'package:grocery_app/features/settings/presentation/widgets/drop_down_menu_item_language.dart';
 
-class Profile extends StatelessWidget {
-  const Profile({Key? key}) : super(key: key);
+class SettingsScreen extends StatelessWidget {
+  const SettingsScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    ResponsiveSize().init(context: context);
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.all(16),
+          padding: ResponsiveSize.defaultPadding(),
           child: Column(
             children: [
-              const SizedBox(
-                height: 40,
+              SizedBox(
+                height: getScreenHeight(50),
               ),
               Stack(
                 children: [
                   SizedBox(
-                    width: 120,
-                    height: 120,
+                    width: getScreenWidth(120),
+                    height: getScreenHeight(120),
                     child: Container(
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(100)),
+                        borderRadius: BorderRadius.circular(
+                            ResponsiveSize.defaultRadius(size: 100)),
+                      ),
                       child: Image.asset(
-                        AssetsPath.assetsIcons + AssetsListName.images[1],
+                        AssetsPath.assetsImages + AssetsListName.images[1],
                       ),
                     ),
                   ),
@@ -34,29 +39,37 @@ class Profile extends StatelessWidget {
                     bottom: 0,
                     right: 0,
                     child: Container(
-                      width: 35,
-                      height: 35,
+                      width: getScreenWidth(35),
+                      height: getScreenHeight(35),
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(100),
+                          borderRadius: BorderRadius.circular(
+                            ResponsiveSize.defaultRadius(size: 100),
+                          ),
                           color: Theme.of(context).primaryColor),
-                      child: const Icon(
+                      child: Icon(
                         Icons.camera_alt_rounded,
                         color: Colors.white,
-                        size: 20,
+                        size: getScreenWidth(20),
                       ),
                     ),
                   ),
                 ],
               ),
-              const SizedBox(height: 12),
+              SizedBox(
+                height: getScreenHeight(12),
+              ),
               Text("Guest", style: Theme.of(context).textTheme.headlineSmall),
               Text("user app", style: Theme.of(context).textTheme.bodySmall),
-              const SizedBox(height: 16),
+              SizedBox(
+                height: getScreenHeight(16),
+              ),
 
               const Divider(
                 thickness: 0.1,
               ),
-              const SizedBox(height: 10),
+              SizedBox(
+                height: getScreenHeight(10),
+              ),
 
               /// -- MENU
               ProfileMenuWidget(
@@ -75,10 +88,17 @@ class Profile extends StatelessWidget {
                 thickness: 0.1,
               ),
               const SizedBox(height: 10),
+              const DropdownMenuItemLanguage(),
+              const SizedBox(height: 10),
+              const Divider(
+                thickness: 0.1,
+              ),
+              const SizedBox(height: 10),
               ProfileMenuWidget(
                   title: "terms & conditions",
                   icon: Icons.info,
                   onPress: () {}),
+
               ProfileMenuWidget(
                 title: "About us",
                 icon: Icons.developer_mode_rounded,
@@ -131,6 +151,7 @@ class Profile extends StatelessWidget {
                   );
                 },
               ),
+              const SizedBox(height: 10),
             ],
           ),
         ),

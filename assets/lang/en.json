@@ -1,4 +1,25 @@
 {
-    "appName": "Daqiq",
-    "appNameReport": "Daqiq App"
+    "appName": "Grocery",
+    "appNameReport": "Grocery App",
+    "groceryProducts" : "Grocery Products",
+    "newlyAdded" : "Newly Added  🔥",
+    "seeAll" : "See All",
+    "somethingWentWrong" : "Something Went Wrong",
+    "home" : "Home",
+    "categories" : "Categories",
+    "settings" : "Settings",
+    "cart" : "Cart",
+    "searchProducts" : "Search Products ...",
+    "refresh" : "Refresh",
+    "addToCart" : "Add To Cart",
+
+    
+    
+    
+    
+    
+    
+    "language": "Change language",
+    "languageArabic": "Arabic 🇸🇦",
+    "languageEnglish": "English 🇬🇧"
 }
